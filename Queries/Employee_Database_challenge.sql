@@ -45,3 +45,11 @@ from employees as e
 	on (e.emp_no = t.emp_no)
 where (de.to_date = '9999-01-01') and (e.birth_date between '1965-01-01' and '1965-12-31')
 order by e.emp_no
+
+--finding ratio of students per mentor
+select mc.title, (rt.count/mc.number) as ratio
+from mentorship_count as mc
+inner join retiring_titles as rt
+on (rt.title = mc.title)
+where (rt.title = mc.title)
+order by ratio desc
